@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useMemo } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
-import modelPath from '../assets/bb8_animated.glb'
+import modelPath from '../assets/bb8_animated.glb?url'
 
 export default function BB8Model(props) {
     const group = useRef()

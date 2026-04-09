@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { LayoutGrid, List, MapPin, Briefcase, DollarSign, Clock, ChevronRight, X, Heart, Share2, Bookmark } from 'lucide-react';
+import { LayoutGrid, List, MapPin, Briefcase, DollarSign, Clock, ChevronRight, X, Heart, Share2, Bookmark, Shield, Zap, Users, Globe, Smile, Rocket, Sparkles, MessageSquare, Coffee, Target, Award, CheckCircle, Star, Cpu, Lock, Database, Handshake, Activity, BarChart, TrendingUp, Cloud, ArrowRight } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 /* ══════════════════════════════════════
    INTERSECTION REVEAL HOOK
@@ -512,6 +513,18 @@ export const CareersPage = () => {
     const [viewMode, setViewMode] = useState('list');
     const [selectedJob, setSelectedJob] = useState(JOBS[0]);
     const [mobileShowDetail, setMobileShowDetail] = useState(false);
+    const location = useLocation();
+    const [activeHash, setActiveHash] = useState('');
+
+    useEffect(() => {
+        if (location.hash) {
+            const hash = location.hash.replace('#', '');
+            setActiveHash(hash);
+            // Optional: reset after animation
+            const timer = setTimeout(() => setActiveHash(''), 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [location]);
 
     const [particles] = useState(() =>
         Array.from({ length: 18 }, (_, i) => ({
@@ -586,8 +599,8 @@ export const CareersPage = () => {
                     {/* Header with toggle */}
                     <div style={{ marginBottom: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '24px' }}>
                         <div>
-                            <p style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', color: T.primary, marginBottom: '8px' }}>OPEN POSITIONS</p>
-                            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', fontWeight: 800, color: T.textDark, margin: 0 }}>{JOBS.length} Active Roles</h2>
+                            <p style={{ fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', color: T.primary, marginBottom: '12px', letterSpacing: '0.05em' }}>OPEN POSITIONS</p>
+                            <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: T.textDark, margin: 0, lineHeight: 1.1 }}>{JOBS.length} Active Roles</h2>
                         </div>
 
                         <div style={{ 
@@ -711,24 +724,285 @@ export const CareersPage = () => {
                             <JobDetailView job={selectedJob} onClose={() => setMobileShowDetail(false)} />
                         </div>
                     )}
+                </div>
+            </section>
 
-                    {/* Bottom CTA / Culture Section */}
-                    <div id="life-at-halftone-systems" style={{
-                        marginTop: '80px', padding: '3rem', borderRadius: '16px', background: '#fff', border: `1px solid ${T.border}`,
-                        display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px',
-                    }}>
-                        <div>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, margin: '0 0 8px', color: T.textDark }}>Don't see a role that fits?</h3>
-                            <p style={{ margin: 0, color: T.textBody }}>Send us your resume — we're always looking for exceptional talent.</p>
+            {/* OUR CULTURE SECTION */}
+            <section
+                id="our-culture"
+                style={{
+                    position: 'relative', width: '100%',
+                    background: '#ffffff', padding: '100px 24px',
+                }}
+            >
+                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                    <div style={{ textAlign: 'left', marginBottom: '80px' }}>
+                        <p style={{ fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', color: T.primary, marginBottom: '12px', letterSpacing: '0.05em' }}>ABOUT US</p>
+                        <h2 className={activeHash === 'our-culture' ? 'title-highlight' : ''} style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: T.textDark, margin: '0 0 24px', lineHeight: 1.1 }}>Our Culture</h2>
+                        <h3 style={{ fontSize: '1.4rem', color: T.textBody, fontWeight: 500, maxWidth: '800px', margin: '0 0 40px', lineHeight: 1.4 }}>The heartbeat behind everything we build</h3>
+                        <div style={{ maxWidth: '1000px', textAlign: 'left' }}>
+                            <h4 style={{ fontSize: '1.6rem', fontWeight: 800, color: T.textDark, marginBottom: '24px' }}>Where Ambition Meets Purpose</h4>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '24px' }}>
+                                At Halftone Systems, culture is not a policy document or a set of values on a wall. It is the living, breathing force that drives every line of code we write, every solution we architect, and every client relationship we build.
+                            </p>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '32px' }}>
+                                Born from 19 years of international experience spanning Germany, USA, UK, and India, our culture is a unique blend of global perspective and grounded human values — rigorous enough to serve Fortune 500 enterprises, yet agile enough to champion bold startup ambitions.
+                            </p>
+                            <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '24px', background: T.bgAlt, borderRadius: '16px', border: `1px solid ${T.border}` }}>
+                                <Sparkles size={32} style={{ color: T.primary, marginTop: '4px' }} />
+                                <p style={{ fontSize: '1.4rem', fontWeight: 600, color: T.primary, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
+                                    "We believe that the best technology in the world is built by people who genuinely love what they do."
+                                </p>
+                            </div>
                         </div>
+                    </div>
+
+                    <div style={{ marginBottom: '100px' }}>
+                        <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: T.textDark, textAlign: 'left', marginBottom: '48px' }}>Our Core Values</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px' }}>
+                            {[
+                                { icon: <Zap size={28} />, title: 'Innovation First', desc: 'We lead with curiosity and build with conviction. AI, ML, Cloud, and Blockchain are not just buzzwords at HTS — they are the architecture of every solution we deliver. We challenge the status quo so our clients stay permanently ahead of the curve.' },
+                                { icon: <CheckCircle size={28} />, title: 'Measurable Excellence', desc: 'Good enough is never good enough. Every solution we produce is benchmarked against real, verifiable outcomes — from 300% ROI within the first deployment year to 40% improvement in conversion rates. We celebrate outcomes, not just effort.' },
+                                { icon: <Shield size={28} />, title: 'Integrity Without Compromise', desc: 'We operate with military-grade honesty — the same zero-compromise standard we apply to our cybersecurity solutions. Our clients trust us with their most sensitive operations; our team earns that trust every single day.' },
+                                { icon: <Globe size={28} />, title: 'Global Mindset, Human Touch', desc: 'With offices across India and the USA and a team that has delivered across 14+ verticals and 2 continents, we think globally but connect personally. Every stakeholder — client or colleague — is treated as a long-term partner.' },
+                                { icon: <TrendingUp size={28} />, title: 'Ownership & Accountability', desc: 'Every member of the HTS family takes full ownership of their work. We don’t have passengers on this journey — we have builders, thinkers, and leaders at every level. Problems are owned, not deflected.' },
+                                { icon: <Star size={28} />, title: 'Continuous Growth', desc: 'Technology evolves at breakneck speed. We stay ahead by fostering a culture of perpetual learning — cross-discipline exposure, mentorship from industry leaders, and the freedom to experiment, fail intelligently, and grow fast.' }
+                            ].map((v, i) => (
+                                <div key={i} style={{ padding: '2rem', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '20px', display: 'flex', flexDirection: 'column', background: 'rgba(238, 244, 249, 0.7)', backdropFilter: 'blur(8px)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
+                                     onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.05)'; }}
+                                     onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                                        <div style={{ color: T.primary }}>{v.icon}</div>
+                                    </div>
+                                    <h4 style={{ fontSize: '1.25rem', fontFamily: "'Rubik', sans-serif", fontWeight: 700, marginBottom: '0.75rem', color: '#0b1f40' }}>{v.title}</h4>
+                                    <p style={{ color: '#475569', lineHeight: 1.6, margin: 0, fontSize: '0.95rem' }}>{v.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '80px', alignItems: 'flex-start', marginBottom: '100px' }}>
+                        <div>
+                            <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: T.textDark, marginBottom: '32px' }}>A Culture Built on Deep Roots</h3>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '24px' }}>
+                                Our Founder and Managing Director, <strong>Nagaraj Adireddy</strong>, built Halftone Systems not just as a technology company — but as a platform for people who want to do exceptional work.
+                            </p>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '40px' }}>
+                                His 19-year journey across four countries and his trusted advisory relationships with Fortune 500 enterprises are more than credentials. They are a promise: that every person at HTS will have access to world-class thinking, global exposure, and the kind of work that actually matters.
+                            </p>
+                            <div style={{ padding: '40px', background: T.bgAlt, borderRadius: '24px', border: `1px solid ${T.border}`, position: 'relative' }}>
+                                <p style={{ fontSize: '1.3rem', color: T.textDark, fontWeight: 500, lineHeight: 1.7, marginBottom: '24px', fontStyle: 'italic' }}>
+                                    “Technology is not just about digital adoption; it’s about business transformation. Every solution we architect must drive measurable value, enhance competitive positioning, and create sustainable growth.”
+                                </p>
+                                <p style={{ fontSize: '1.1rem', fontWeight: 800, color: T.primary, margin: 0, letterSpacing: '0.02em' }}>
+                                    — Nagaraj Adireddy, Founder & Managing Director, Halftone Systems
+                                </p>
+                            </div>
+                        </div>
+                        <div style={{ background: 'rgba(37,99,235,0.02)', padding: '50px', borderRadius: '32px', border: `1px solid ${T.border}` }}>
+                            <h4 style={{ fontSize: '1.8rem', fontWeight: 800, color: T.textDark, marginBottom: '24px' }}>Collaboration, Not Hierarchy</h4>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '40px' }}>
+                                At HTS, the best idea wins — regardless of title. We have built a flat, collaborative structure where junior engineers challenge architects, where designers influence strategy, and where every voice contributes to the outcomes we deliver.
+                            </p>
+                            <h4 style={{ fontSize: '1.8rem', fontWeight: 800, color: T.textDark, marginBottom: '24px' }}>Diversity as a Strength</h4>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: 0 }}>
+                                We serve 14+ industry verticals across two continents. That breadth demands genuine diversity of thought, background, and expertise. HTS is where specialists and generalists collaborate to produce outcomes no single discipline could achieve alone.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div className="responsive-box" style={{ textAlign: 'left', marginBottom: '100px', padding: '60px', background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '32px', color: '#fff', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+                        <h3 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '24px', lineHeight: 1.2 }}>Our Promise to Every Team Member</h3>
+                        <p style={{ fontSize: '1.15rem', maxWidth: '900px', lineHeight: 1.8, opacity: 0.95 }}>
+                            Whether you are a seasoned technology architect or an ambitious graduate entering your first role, Halftone Systems commits to giving you the environment, the tools, and the trust to build something extraordinary. Your career is not just a job here — it is a mission.
+                        </p>
+                    </div>
+
+                    <div style={{ textAlign: 'left' }}>
+                        <h3 style={{ fontSize: '2rem', fontWeight: 800, color: T.textDark, marginBottom: '60px' }}>Innovation Embedded in Culture</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '48px' }}>
+                            {[
+                                { icon: <Cpu size={24} />, title: 'AI-First Thinking', text: 'Every team is encouraged to find the AI application within their domain — whether it is automating testing, improving client reporting, or predicting project risk.' },
+                                { icon: <Cloud size={24} />, title: 'Cloud-Native by Default', text: 'We architect for scale and resilience from day one. Every solution is built cloud-ready, ensuring our clients’ technology grows with their ambitions.' },
+                                { icon: <Lock size={24} />, title: 'Security Always', text: 'Military-grade security is not a department at HTS — it is a mindset woven into every layer of development, from architecture to deployment.' },
+                                { icon: <BarChart size={24} />, title: 'Data-Driven Decisions', text: 'We build systems that generate insight. Internally, we apply the same standard: decisions at HTS are backed by evidence, not opinion.' },
+                                { icon: <Handshake size={24} />, title: 'Client Partnership Mindset', text: 'Every engagement is a partnership. Our team is trained to think like their clients’ internal technology division — invested in outcomes, not just deliverables.' },
+                                { icon: <Activity size={24} />, title: 'Speed Without Compromise', text: 'Our proven agile methodology delivers in 50 days. Speed is built into our culture — but never at the expense of quality, security, or client trust.' }
+                            ].map((item, i) => (
+                                <div key={i} style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+                                    <div style={{ color: T.primary, marginTop: '4px' }}>{item.icon}</div>
+                                    <div>
+                                        <h5 style={{ fontSize: '1.4rem', fontWeight: 800, color: T.textDark, marginBottom: '12px' }}>{item.title}</h5>
+                                        <p style={{ color: T.textBody, fontSize: '1.1rem', lineHeight: 1.7, margin: 0 }}>{item.text}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* LIFE AT HTS SECTION */}
+            <section
+                id="life-at-hts"
+                style={{
+                    position: 'relative', width: '100%',
+                    background: T.bgAlt, padding: '100px 24px',
+                    overflow: 'hidden'
+                }}
+            >
+                {/* Decorative Background Element */}
+                <div style={{
+                    position: 'absolute',
+                    top: '40%',
+                    right: '-150px',
+                    width: '600px',
+                    height: '600px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)',
+                    zIndex: 0,
+                    pointerEvents: 'none'
+                }} />
+                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                    <div style={{ textAlign: 'left', marginBottom: '80px' }}>
+                        <p style={{ fontSize: '1rem', fontWeight: 700, textTransform: 'uppercase', color: T.primary, marginBottom: '12px', letterSpacing: '0.05em' }}>THE EXPERIENCE</p>
+                        <h2 className={activeHash === 'life-at-hts' ? 'title-highlight' : ''} style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: T.textDark, margin: '0 0 24px', lineHeight: 1.1 }}>Life at HTS</h2>
+                        <h3 style={{ fontSize: '1.4rem', color: T.textBody, fontWeight: 500, maxWidth: '800px', margin: '0 0 40px', lineHeight: 1.4 }}>What it really feels like to work here</h3>
+                        <div style={{ maxWidth: '1000px', textAlign: 'left' }}>
+                            <h4 style={{ fontSize: '1.6rem', fontWeight: 800, color: T.textDark, marginBottom: '24px' }}>Experience the HTS Difference</h4>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '24px' }}>
+                                Life at Halftone Systems is a rare combination: the intellectual rigour of a global enterprise consultancy, the pace and energy of a high-growth technology company, and the warmth of a team that genuinely invests in each other.
+                            </p>
+                            <p style={{ fontSize: '1.1rem', color: T.textBody, lineHeight: 1.7, marginBottom: '32px' }}>
+                                When you join HTS, you step into a world where your work immediately touches industries that matter — from Healthcare AI platforms to smart manufacturing solutions redefining Industry 4.0. Every day brings a new challenge. Every challenge is an opportunity to grow.
+                            </p>
+                            <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '24px', background: '#fff', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                                <Heart size={32} style={{ color: T.primary, marginTop: '4px' }} />
+                                <p style={{ fontSize: '1.4rem', fontWeight: 600, color: T.primary, fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
+                                    "We run technology. But people are at the heart of everything we run."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style={{ marginBottom: '100px' }}>
+                        <h4 style={{ fontSize: '1.8rem', fontWeight: 800, color: T.textDark, textAlign: 'left', marginBottom: '32px' }}>Your Day at HTS</h4>
+                        <p style={{ textAlign: 'left', maxWidth: '900px', margin: '0 0 48px', color: T.textBody, fontSize: '1.2rem', lineHeight: 1.8 }}>
+                            No two days at HTS are alike. You might begin the morning deep in a cross-functional sprint for a healthcare client in India and end the afternoon contributing to a digital commerce strategy for a client in the United States.
+                        </p>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px' }}>
+                            {[
+                                { title: 'Cross-Industry Exposure', desc: 'From Dick’s Sporting Goods to Bharat Care Ambulance Service to Creighton University — you work with a client portfolio that spans continents, industries, and scales.' },
+                                { title: 'Cutting-Edge Technology Stack', desc: 'Work with SAP, AWS, Azure, Google Cloud, Salesforce, Oracle, and the full spectrum of AI and ML frameworks. At HTS, you are always at the frontier.' },
+                                { title: 'Outcomes That Define Careers', desc: 'Delivering a 40% reduction in client operational downtime or a 400% efficiency improvement through AI automation is not unusual at HTS.' },
+                                { title: 'Mentorship at Every Level', desc: 'Learn directly from a leadership team with Fortune 500 advisory experience. Mentorship at HTS is the natural result of working shoulder to shoulder.' },
+                                { title: 'A Genuinely Global Environment', desc: 'Collaborate with colleagues and clients across India, the USA, UK, Germany, and beyond. Global thinking is daily practice at HTS.' },
+                                { title: 'Recognition & Growth', desc: 'Growth is meritocratic, meaningful, and fast. Whether you are growing technical depth or expanding into leadership, your trajectory is shaped by ambition.' }
+                            ].map((v, i) => (
+                                <div key={i} style={{ padding: '2rem', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '20px', display: 'flex', flexDirection: 'column', background: 'rgba(238, 244, 249, 0.7)', backdropFilter: 'blur(8px)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
+                                     onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.05)'; }}
+                                     onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
+                                    <h5 style={{ fontSize: '1.25rem', fontFamily: "'Rubik', sans-serif", fontWeight: 700, marginBottom: '0.75rem', color: '#0b1f40' }}>{v.title}</h5>
+                                    <p style={{ color: '#475569', lineHeight: 1.6, margin: 0, fontSize: '0.95rem' }}>{v.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '80px', alignItems: 'center', marginBottom: '100px' }}>
+                        <div style={{ padding: '50px', background: 'linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '32px', color: '#fff', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+                            <h4 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '24px', lineHeight: 1.2 }}>The People You’ll Work With</h4>
+                            <p style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '24px', opacity: 0.95 }}>
+                                Our team is a community of technologists, strategists, and consultants united by a shared conviction that technology should create real change.
+                            </p>
+                            <p style={{ fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '0', opacity: 0.95 }}>
+                                You will work alongside enterprise architects who have modernised SAP systems, AI engineers who have built predictive platforms, and mobile developers who have deployed life-saving apps.
+                            </p>
+                        </div>
+                        <div style={{ padding: '40px', background: '#fff', borderRadius: '24px', border: '1px solid rgba(59, 130, 246, 0.2)', boxShadow: '0 10px 30px rgba(0,0,0,0.02)' }}>
+                            <p style={{ fontSize: '1.4rem', color: T.textDark, fontWeight: 500, lineHeight: 1.7, fontStyle: 'italic', marginBottom: '24px' }}>
+                                “Whether you are a Fortune 500 enterprise or a high-growth startup, Halftone Systems has the expertise, vision, and global reach to accelerate your success in the digital economy.”
+                            </p>
+                            <p style={{ fontSize: '1.1rem', fontWeight: 800, color: T.primary, margin: 0, letterSpacing: '0.02em' }}>
+                                — Our Promise — Halftone Systems
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style={{ marginBottom: '100px' }}>
+                        <h3 style={{ fontSize: '2rem', fontWeight: 800, color: T.textDark, textAlign: 'left', marginBottom: '60px' }}>Roles That Make Impact</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px' }}>
+                            {[
+                                { title: 'Software Engineering', desc: 'Full-stack, mobile (iOS & Android), and cloud-native development roles working on enterprise, healthcare, and retail platforms.' },
+                                { title: 'AI & Data Science', desc: 'Machine learning engineering, NLP, computer vision, and BI roles that turn raw data into strategic advantage for global clients.' },
+                                { title: 'Cybersecurity', desc: 'Zero-Trust Architecture specialists and compliance experts (GDPR, HIPAA) protecting clients at military-grade standards.' },
+                                { title: 'Cloud & DevOps', desc: 'Multi-cloud architects and DevOps engineers working across AWS, Azure, and Google Cloud — building infrastructure at scale.' },
+                                { title: 'ERP & SAP Consulting', desc: 'Specialists in SAP ERP and S/4HANA delivering manufacturing and supply chain transformation for global enterprises.' },
+                                { title: 'Project & Delivery', desc: 'Scrum Masters and programme leads orchestrating our 5-step delivery methodology and ensuring every engagement exceeds expectations.' }
+                            ].map((role, i) => (
+                                <div key={i} style={{ padding: '2rem', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '20px', display: 'flex', flexDirection: 'column', background: 'rgba(238, 244, 249, 0.7)', backdropFilter: 'blur(8px)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
+                                     onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.05)'; }}
+                                     onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
+                                    <h5 style={{ fontWeight: 700, color: T.primary, marginBottom: '0.75rem', fontSize: '1.25rem', fontFamily: "'Rubik', sans-serif" }}>{role.title}</h5>
+                                    <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{role.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div style={{ marginBottom: '100px' }}>
+                        <h3 style={{ fontSize: '2rem', fontWeight: 800, color: T.textDark, textAlign: 'left', marginBottom: '60px' }}>What You Can Expect from Day One</h3>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+                            {[
+                                { title: 'Immediate Impact', icon: <Zap size={28} />, text: 'No extended induction periods. You are contributing to live client engagements from your first week.' },
+                                { title: 'World-Class Leadership', icon: <Award size={28} />, text: 'Direct access to a leadership team that has advised Fortune 500 enterprises across four countries.' },
+                                { title: 'Landmark Projects', icon: <Briefcase size={28} />, text: 'Build a career portfolio featuring some of the most prestigious clients and complex technology challenges.' },
+                                { title: 'Accelerated Trajectory', icon: <TrendingUp size={28} />, text: 'HTS is high-growth. Promotion and specialisation opportunities are significant and meritocratic.' }
+                            ].map((item, i) => (
+                                <div key={i} style={{ padding: '2rem', border: '1px solid rgba(59, 130, 246, 0.2)', borderRadius: '20px', display: 'flex', flexDirection: 'column', background: 'rgba(238, 244, 249, 0.7)', backdropFilter: 'blur(8px)', transition: 'transform 0.3s ease, box-shadow 0.3s ease' }}
+                                     onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.05)'; }}
+                                     onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                                        <div style={{ color: T.primary }}>{item.icon}</div>
+                                    </div>
+                                    <h5 style={{ fontSize: '1.25rem', fontFamily: "'Rubik', sans-serif", fontWeight: 700, color: '#0b1f40', marginBottom: '0.75rem' }}>{item.title}</h5>
+                                    <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Closing CTA */}
+                    <div style={{
+                        padding: '6rem 4rem', borderRadius: '32px', 
+                        background: 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600")',
+                        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed',
+                        display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center',
+                        boxShadow: '0 30px 60px rgba(0,0,0,0.15)', position: 'relative', overflow: 'hidden'
+                    }}>
+                        <h3 style={{ fontSize: '3.2rem', fontWeight: 800, margin: '0 0 24px', color: '#fff', position: 'relative', zIndex: 1, lineHeight: 1.1 }}>Ready to build the future?</h3>
+                        <p style={{ color: '#e5e7eb', maxWidth: '700px', fontSize: '1.15rem', marginBottom: '48px', position: 'relative', zIndex: 1, lineHeight: 1.7 }}>
+                            We are always looking for exceptional talent. If you don't see a role that fits but believe you can add value, we want to hear from you.
+                        </p>
                         <a 
                             href="mailto:hr@halftonesystems.com?subject=Job Application" 
                             style={{ 
-                                padding: '12px 32px', borderRadius: '8px', background: T.primary, color: '#fff', 
-                                fontWeight: 700, border: 'none', cursor: 'pointer', textDecoration: 'none'
+                                padding: '14px 40px', borderRadius: '100px', background: T.primary, color: '#fff', 
+                                fontWeight: 800, border: 'none', cursor: 'pointer', textDecoration: 'none',
+                                transition: 'all 0.3s ease', boxShadow: '0 15px 30px rgba(37,99,235,0.25)',
+                                position: 'relative', zIndex: 1, fontSize: '0.95rem'
+                            }}
+                            onMouseOver={(e) => {
+                                e.target.style.transform = 'translateY(-4px)';
+                                e.target.style.boxShadow = '0 20px 40px rgba(37,99,235,0.35)';
+                            }}
+                            onMouseOut={(e) => {
+                                e.target.style.transform = 'translateY(0)';
+                                e.target.style.boxShadow = '0 15px 30px rgba(37,99,235,0.25)';
                             }}
                         >
-                            Send Your Resume →
+                            Send Your Resume &rarr;
                         </a>
                     </div>
                 </div>
@@ -745,6 +1019,48 @@ export const CareersPage = () => {
                         min-height: auto !important;
                         padding-bottom: 40px !important;
                     }
+                    /* Mobile responsiveness overrides for boxes and text */
+                    #our-culture h2, #life-at-hts h2 { font-size: 2.2rem !important; }
+                    #our-culture h3, #life-at-hts h3 { font-size: 1.6rem !important; }
+                    #our-culture p, #life-at-hts p { font-size: 1rem !important; line-height: 1.5 !important; }
+                    
+                    /* Force grid templates to 1 responsive column so cards don't overflow */
+                    div[style*="gridTemplateColumns"],
+                    div[style*="grid-template-columns"] {
+                        grid-template-columns: 1fr !important;
+                        width: 100% !important;
+                        box-sizing: border-box;
+                    }
+
+                    /* Shrink heavy grid gaps and padding */
+                    div[style*="gap: '80px'"], div[style*="gap: 80px"],
+                    div[style*="gap: '48px'"], div[style*="gap: 48px"] {
+                        gap: 32px !important;
+                    }
+                    div[style*="gap: '40px'"], div[style*="gap: 40px"] {
+                        gap: 24px !important;
+                    }
+                    div[style*="padding: '60px'"],
+                    div[style*="padding: '50px'"],
+                    div[style*="padding: '40px'"],
+                    div[style*="padding: '2rem'"] {
+                        padding: 1.5rem !important;
+                        border-radius: 20px !important;
+                    }
+                    div[style*="padding: '6rem 4rem'"] {
+                        padding: 3rem 1.5rem !important;
+                    }
+                }
+                
+                .form-grid-2 {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 24px;
+                }
+                .form-checkbox-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 16px;
                 }
                 
                 .custom-scrollbar::-webkit-scrollbar {

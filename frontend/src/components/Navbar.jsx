@@ -102,8 +102,8 @@ export const Navbar = () => {
             href: '/careers',
             dropdown: [
                 { name: 'Open Positions', href: '/careers#open-positions' },
-                { name: 'Our Culture', href: '/careers#life-at-halftone-systems' },
-                { name: 'Life at Halftone Systems', href: '/careers#life-at-halftone-systems' }
+                { name: 'Our Culture', href: '/careers#our-culture' },
+                { name: 'Life at HTS', href: '/careers#life-at-hts' }
             ]
         },
         {
@@ -160,46 +160,97 @@ export const Navbar = () => {
             <div className="navbar-bottom">
                 <div className="container">
                     <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
-                        {navLinks.map((link, idx) => {
-                            if (isMobileMenuOpen && link.name === 'Contact Us') return null;
-                            const isActive = location.pathname === link.href ||
-                                (link.href !== '/' && location.pathname.startsWith(link.href));
-                            return (
-                                <React.Fragment key={link.name}>
-                                    {idx > 0 && <span className="nav-divider" />}
-                                    <div className={`nav-item ${isActive ? 'active' : ''}`}>
-                                        <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
-                                            <Link to={link.href} className="nav-link" style={{ flexGrow: 1 }} onClick={() => setIsMobileMenuOpen(false)}>
-                                                {link.name}
-                                            </Link>
-                                        </div>
-                                        {/* Dropdown for DESKTOP only */}
-                                        {link.dropdown && link.dropdown.length > 0 && (
-                                            <div className="dropdown-menu">
-                                                {link.dropdown.map((item) => (
-                                                    <a
-                                                        key={item.name}
-                                                        href={item.href}
-                                                        className="dropdown-item"
+                        {isMobileMenuOpen ? (
+                            <div className="mobile-menu-scrollable">
+                                {navLinks.map((link, idx) => {
+                                    if (link.name === 'Contact Us') return null;
+                                    const isActive = location.pathname === link.href ||
+                                        (link.href !== '/' && location.pathname.startsWith(link.href));
+                                    return (
+                                        <React.Fragment key={link.name}>
+                                            <div className={`nav-item ${isActive ? 'active' : ''}`}>
+                                                <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                    <Link 
+                                                        to={link.href} 
+                                                        className="nav-link" 
+                                                        style={{ flexGrow: 1 }} 
+                                                        onClick={(e) => {
+                                                            if (link.name === 'Careers') {
+                                                                e.preventDefault();
+                                                                setOpenMobileDropdown(openMobileDropdown === 'Careers' ? null : 'Careers');
+                                                            } else {
+                                                                setIsMobileMenuOpen(false);
+                                                            }
+                                                        }}
                                                     >
-                                                        <span className="hover-tick"><Check size={14} strokeWidth={3} /></span>
-                                                        {item.name}
-                                                    </a>
-                                                ))}
+                                                        {link.name}
+                                                    </Link>
+                                                    {link.name === 'Careers' && link.dropdown && link.dropdown.length > 0 && (
+                                                        <button 
+                                                            onClick={(e) => { e.preventDefault(); setOpenMobileDropdown(openMobileDropdown === 'Careers' ? null : 'Careers'); }}
+                                                            style={{ background: 'none', border: 'none', color: '#111827', padding: '10px 1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                                                        >
+                                                            <ChevronDown size={20} style={{ transform: openMobileDropdown === 'Careers' ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s ease' }} />
+                                                        </button>
+                                                    )}
+                                                </div>
+                                                {link.name === 'Careers' && openMobileDropdown === 'Careers' && (
+                                                    <div style={{ paddingLeft: '24px', paddingTop: '8px', paddingBottom: '16px', display: 'flex', flexDirection: 'column', gap: '16px', borderLeft: '2px solid #2563eb', marginLeft: '1.5rem', marginBottom: '8px' }}>
+                                                        {link.dropdown.map((item) => (
+                                                            <a
+                                                                key={item.name}
+                                                                href={item.href}
+                                                                style={{ color: '#2563eb', textDecoration: 'none', fontSize: '1rem', fontWeight: 700 }}
+                                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                            >
+                                                                {item.name}
+                                                            </a>
+                                                        ))}
+                                                    </div>
+                                                )}
                                             </div>
-                                        )}
-                                    </div>
-                                </React.Fragment>
-                            );
-                        })}
+                                        </React.Fragment>
+                                    )
+                                })}
+                            </div>
+                        ) : (
+                            navLinks.map((link, idx) => {
+                                const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
+                                return (
+                                    <React.Fragment key={link.name}>
+                                        {idx > 0 && <span className="nav-divider" />}
+                                        <div className={`nav-item ${isActive ? 'active' : ''}`}>
+                                            <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+                                                <Link to={link.href} className="nav-link" style={{ flexGrow: 1 }}>
+                                                    {link.name}
+                                                </Link>
+                                            </div>
+                                            {link.dropdown && link.dropdown.length > 0 && (
+                                                <div className="dropdown-menu">
+                                                    {link.dropdown.map((item) => (
+                                                        <a key={item.name} href={item.href} className="dropdown-item">
+                                                            <span className="hover-tick"><Check size={14} strokeWidth={3} /></span>
+                                                            {item.name}
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </React.Fragment>
+                                );
+                            })
+                        )}
                         
-                        {/* Mobile-only Buttons */}
-                        <Link to="/vayucare-forge" className="mobile-contact-link vayucare-mobile-btn" onClick={() => setIsMobileMenuOpen(false)}>
-                            VAYUCARE FORGE
-                        </Link>
-                        <Link to="/contact" className="mobile-contact-link secondary" onClick={() => setIsMobileMenuOpen(false)}>
-                            Contact Us
-                        </Link>
+                        {isMobileMenuOpen && (
+                            <div className="mobile-menu-sticky-bottom">
+                                <Link to="/vayucare-forge" className="mobile-contact-link vayucare-mobile-btn" onClick={() => setIsMobileMenuOpen(false)}>
+                                    VAYUCARE FORGE
+                                </Link>
+                                <Link to="/contact" className="mobile-contact-link" onClick={() => setIsMobileMenuOpen(false)}>
+                                    Contact Us
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Globe, MapPin, Cpu, Layers, Cloud, Laptop, Shield, PieChart, Bot, Zap, ArrowRight, Quote } from 'lucide-react';
+import { Mail, Phone, Globe, MapPin, Cpu, Layers, Cloud, Laptop, Shield, PieChart, Bot, Zap, ArrowRight, Quote, Lock } from 'lucide-react';
 import './Contact.css';
 
 // Flag assets
@@ -303,6 +303,98 @@ export const Contact = () => {
                         <cite className="quote-author">
                             — Nagaraj Adireddy, Founder & Managing Director, Halftone Systems
                         </cite>
+                    </div>
+                </div>
+            </section>
+
+            {/* PROJECT ENQUIRY FORM */}
+            <section className="contact-form-section section-padding" style={{ background: '#f8fafc' }}>
+                <div className="container">
+                    <div className="responsive-box" style={{ 
+                        padding: 'clamp(24px, 5vw, 60px)', 
+                        background: '#ffffff', 
+                        borderRadius: '32px', 
+                        border: '1px solid rgba(59, 130, 246, 0.2)',
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.04)',
+                        width: '100%',
+                        boxSizing: 'border-box'
+                    }}>
+                        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                            <p style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', color: '#2563eb', marginBottom: '12px', letterSpacing: '0.05em' }}>SEND A MESSAGE</p>
+                            <h3 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', fontWeight: 800, color: '#0b1f40', marginBottom: '16px' }}>Tell Us About Your Project</h3>
+                            <p style={{ fontSize: '1.1rem', color: '#475569', maxWidth: '600px', margin: '0 auto' }}>
+                                Fill in this form and one of our specialists will be in touch within one business day.
+                            </p>
+                        </div>
+
+                        <form className="careers-contact-form" style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
+                            <div className="form-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', width: '100%' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+                                    <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>FIRST NAME *</label>
+                                    <input type="text" placeholder="Enter your first name" style={{ width: '100%', boxSizing: 'border-box', padding: '16px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)', fontSize: '1rem', background: '#f8fafc' }} required />
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+                                    <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>LAST NAME *</label>
+                                    <input type="text" placeholder="Enter your last name" style={{ width: '100%', boxSizing: 'border-box', padding: '16px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)', fontSize: '1rem', background: '#f8fafc' }} required />
+                                </div>
+                            </div>
+                            
+                            <div className="form-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', width: '100%' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+                                    <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>BUSINESS EMAIL *</label>
+                                    <input type="email" placeholder="your@company.com" style={{ width: '100%', boxSizing: 'border-box', padding: '16px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)', fontSize: '1rem', background: '#f8fafc' }} required />
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+                                    <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>PHONE NUMBER</label>
+                                    <input type="tel" placeholder="+91 98765 43210" style={{ width: '100%', boxSizing: 'border-box', padding: '16px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)', fontSize: '1rem', background: '#f8fafc' }} />
+                                </div>
+                            </div>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+                                <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>COMPANY / ORGANISATION</label>
+                                <input type="text" placeholder="Your company name" style={{ width: '100%', boxSizing: 'border-box', padding: '16px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)', fontSize: '1rem', background: '#f8fafc' }} />
+                            </div>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
+                                <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>SERVICE AREA</label>
+                                <p style={{ fontSize: '0.9rem', color: '#475569', margin: 0 }}>Select a service area (tick one):</p>
+                                <div className="form-checkbox-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+                                    {[
+                                        'Healthcare AI & Smart Ambulance Systems',
+                                        'EV Fleet & Sustainable Mobility',
+                                        'Smart Manufacturing & Industry 4.0',
+                                        'Enterprise AI & ERP Transformation',
+                                        'AI Solutions for MSMEs',
+                                        'E-commerce & Digital Platforms',
+                                        'Mobile App Development',
+                                        'Networking & Infrastructure',
+                                        'Strategic Technology Consulting',
+                                        'Other / General Enquiry'
+                                    ].map((service, idx) => (
+                                        <label key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer', fontSize: '0.95rem', color: '#475569' }}>
+                                            <input type="radio" name="serviceArea" value={service} style={{ width: '18px', height: '18px', accentColor: '#2563eb', marginTop: '2px', flexShrink: 0 }} />
+                                            <span>{service}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', width: '100%' }}>
+                                <label style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0b1f40' }}>YOUR MESSAGE *</label>
+                                <textarea placeholder="Tell us about your project, goals, or the challenge you're looking to solve..." rows="5" style={{ width: '100%', boxSizing: 'border-box', padding: '16px', borderRadius: '12px', border: '1px solid rgba(59, 130, 246, 0.2)', fontSize: '1rem', background: '#f8fafc', resize: 'vertical' }} required />
+                            </div>
+
+                            <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                <button type="button" style={{ padding: 'clamp(14px, 4vw, 18px) clamp(24px, 6vw, 48px)', borderRadius: '100px', background: '#2563eb', color: '#fff', fontSize: 'clamp(0.9rem, 4vw, 1.05rem)', fontWeight: 800, border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', display: 'inline-flex', alignItems: 'center', gap: '12px' }}
+                                        onClick={(e) => alert('Message Sent!')}>
+                                    SEND MESSAGE <ArrowRight size={20} />
+                                </button>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '16px', color: '#6b7280', fontSize: '0.9rem', textAlign: 'center' }}>
+                                    <Lock size={16} />
+                                    <span>Your information is completely confidential. We will never share your details with third parties.</span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>

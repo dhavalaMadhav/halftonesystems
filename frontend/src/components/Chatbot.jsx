@@ -106,10 +106,10 @@ const Chatbot = () => {
         setIsLoading(true);
 
         try {
-            // Get API URL from env, fallback to relative path for dev proxy
-            const apiUrl = import.meta.env.VITE_API_URL || '';
+            // Production Chatbot API URL
+            const apiUrl = 'https://halftonesystems-backend-new.onrender.com';
 
-            // Send the request to your local Node.js backend
+            // Send the request to the production backend
             const response = await fetch(`${apiUrl}/api/chat`, {
                 method: 'POST',
                 headers: {

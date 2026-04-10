@@ -51,7 +51,7 @@ export const Partnerships = () => {
     ];
 
     return (
-        <section className="partnerships section-padding">
+        <section id="partnerships" className="partnerships section-padding">
             <div className="container-fluid">
                 <p className="partners-label text-center">Trusted by Global Technology Leaders</p>
 

@@ -95,8 +95,8 @@ export const Navbar = () => {
             href: '/careers',
             dropdown: [
                 { name: 'Open Positions', href: '/careers#open-positions' },
-                { name: 'Our Culture', href: '/careers#life-at-halftone-systems' },
-                { name: 'Life at Halftone Systems', href: '/careers#life-at-halftone-systems' }
+                { name: 'Our Culture', href: '/careers#our-culture' },
+                { name: 'Life at Halftone Systems', href: '/careers#life-at-hts' }
             ]
         },
         {
@@ -190,9 +190,9 @@ export const Navbar = () => {
                                                 {hasDropdown && openMobileDropdown === link.name && (
                                                     <div style={{ paddingLeft: '48px', paddingTop: '8px', paddingBottom: '16px', display: 'flex', flexDirection: 'column', gap: '16px', marginLeft: '0', marginBottom: '8px' }}>
                                                         {link.dropdown.map((item) => (
-                                                            <a
+                                                            <Link
                                                                 key={item.name}
-                                                                href={item.href}
+                                                                to={item.href}
                                                                 style={{ 
                                                                     color: '#4b5563', 
                                                                     textDecoration: 'none', 
@@ -208,7 +208,7 @@ export const Navbar = () => {
                                                                     <Check size={14} strokeWidth={3} />
                                                                 </span>
                                                                 {item.name}
-                                                            </a>
+                                                            </Link>
                                                         ))}
                                                     </div>
                                                 )}
@@ -242,14 +242,14 @@ export const Navbar = () => {
                                             {link.dropdown && link.dropdown.length > 0 && (
                                                 <div className="dropdown-menu">
                                                     {link.dropdown.map((item) => (
-                                                        <a
+                                                        <Link
                                                             key={item.name}
-                                                            href={item.href}
+                                                            to={item.href}
                                                             className="dropdown-item"
                                                         >
                                                             <span className="hover-tick"><Check size={14} strokeWidth={3} /></span>
                                                             {item.name}
-                                                        </a>
+                                                        </Link>
                                                     ))}
                                                 </div>
                                             )}

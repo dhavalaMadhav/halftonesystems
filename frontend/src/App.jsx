@@ -10,6 +10,7 @@ import { SuccessStoriesPage } from './pages/SuccessStoriesPage';
 import { ContactPage } from './pages/ContactPage';
 import { CareersPage } from './pages/CareersPage';
 import VayucareForgePage from './pages/VayucareForgePage';
+import ScrollToHash from './components/ScrollToHash';
 
 import { ThemeProvider } from './ThemeContext';
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <ScrollToHash />
         <div className="app">
           <Navbar />
           <Routes>

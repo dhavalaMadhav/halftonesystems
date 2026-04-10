@@ -541,9 +541,11 @@
         display: flex; /* keep flex for the label + chevron */
     }
 
-    .nav-item:hover .nav-link {
-        color: #2563EB;
-        background: rgba(37, 99, 235, 0.04);
+    .nav-item:hover .nav-link,
+    .nav-link:active,
+    .nav-link:focus {
+        color: #2563EB !important;
+        background: transparent;
     }
 
     /* Hide dropdowns entirely on mobile per requirement */

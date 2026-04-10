@@ -520,11 +520,19 @@ export const CareersPage = () => {
         if (location.hash) {
             const hash = location.hash.replace('#', '');
             setActiveHash(hash);
-            // Optional: reset after animation
+            
+            // Perform scroll
+            const element = document.getElementById(hash);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+
             const timer = setTimeout(() => setActiveHash(''), 2000);
             return () => clearTimeout(timer);
         }
-    }, [location]);
+    }, [location.hash]);
 
     const [particles] = useState(() =>
         Array.from({ length: 18 }, (_, i) => ({

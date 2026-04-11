@@ -18,10 +18,10 @@ export const Contact = () => {
         },
         {
             icon: <Phone size={32} />,
-            title: "Call Us",
-            subtitle: "Direct Line — Mon to Fri, 9 AM – 6 PM IST",
-            info: "+91 99516 51515",
-            link: "tel:+919951651515"
+            title: "Schedule a Call",
+            subtitle: "Available for global clients",
+            info: "Request via email to schedule",
+            link: "mailto:info@halftonesystems.com"
         },
         {
             icon: <Globe size={32} />,
@@ -413,8 +413,6 @@ export const Contact = () => {
                     </div>
                     <div className="corp-bottom-links">
                         <span className="footer-link-item"><Mail size={16} /> info@halftonesystems.com</span>
-                        <span className="footer-pipe">|</span>
-                        <span className="footer-link-item"><Phone size={16} /> +91 99516 51515</span>
                         <span className="footer-pipe">|</span>
                         <span className="footer-link-item"><Globe size={16} /> www.halftonesystems.com</span>
                     </div>

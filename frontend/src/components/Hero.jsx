@@ -104,9 +104,7 @@ export const Hero = () => {
                 <a href="https://www.linkedin.com/company/halftone-systems" target="_blank" rel="noopener noreferrer" className="widget-icon" aria-label="LinkedIn">
                     <Linkedin size={22} />
                 </a>
-                <a href="tel:+10000000000" className="widget-icon" aria-label="Call Us">
-                    <Phone size={22} />
-                </a>
+
             </div>
         </section>
     );

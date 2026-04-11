@@ -56,10 +56,7 @@ export const Footer = () => {
                                 <Mail size={16} style={{ color: 'var(--c-primary)', flexShrink: 0 }} />
                                 <a href="mailto:info@halftonesystems.com" style={{ textDecoration: 'none', color: 'inherit' }}>info@halftonesystems.com</a>
                             </li>
-                            <li style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
-                                <Phone size={16} style={{ color: 'var(--c-primary)', flexShrink: 0 }} />
-                                <a href="tel:+919951651515" style={{ textDecoration: 'none', color: 'inherit' }}>+91 99516 51515</a>
-                            </li>
+
                             <li style={{ display: 'flex', gap: '8px' }}>
                                 <MapPin size={16} style={{ color: 'var(--c-primary)', flexShrink: 0 }} />
                                 <span style={{ fontSize: '0.9rem' }}>Banjara Hills, Hyderabad, India</span>

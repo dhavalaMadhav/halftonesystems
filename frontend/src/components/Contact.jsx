@@ -7,6 +7,9 @@ import './Contact.css';
 import indiaFlag from '../assets/india_flag.png';
 import usaFlag from '../assets/usa_flag.png';
 
+// Video assets
+import contactVideo from '../assets/videos/Tell Us About Your Project.mp4';
+
 export const Contact = () => {
     const contactCards = [
         {
@@ -119,8 +122,13 @@ export const Contact = () => {
     return (
         <div className="contact-page-container">
             {/* HERO SECTION */}
-            <section className="contact-hero hero-format-standard">
-                <div className="container text-center">
+            <section className="contact-hero hero-format-standard" style={{ position: 'relative', overflow: 'hidden' }}>
+                {/* Background Video */}
+                <div className="hero-video-container">
+                    <video src={contactVideo} autoPlay loop muted playsInline></video>
+                    <div className="hero-video-overlay"></div>
+                </div>
+                <div className="container text-center" style={{ position: 'relative', zIndex: 2 }}>
                     <motion.p 
                         className="eyebrow-format-standard contact-hero-eyebrow"
                         style={{
@@ -139,6 +147,7 @@ export const Contact = () => {
                     </motion.p>
                     <motion.h2 
                         className="hero-main-title"
+                        style={{ color: '#ffffff' }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
@@ -147,6 +156,7 @@ export const Contact = () => {
                     </motion.h2>
                     <motion.div 
                         className="hero-bullets"
+                        style={{ color: '#e5e7eb' }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6, duration: 0.8 }}

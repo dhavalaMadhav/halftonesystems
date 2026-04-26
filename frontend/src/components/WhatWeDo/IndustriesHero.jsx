@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import industriesVideo from '../../assets/videos/Industries We Serve.mp4';
 
 export const IndustriesHero = () => {
     // Reveal animation state removed per user request
@@ -21,9 +22,15 @@ export const IndustriesHero = () => {
         <section className="hero-format-standard industries-hero-section" style={{
             position: 'relative', width: '100%', minHeight: '80vh',
             display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
-            background: '#ffffff', overflow: 'hidden',
+            overflow: 'hidden',
             paddingTop: 0, paddingRight: '24px', paddingBottom: '80px', paddingLeft: '24px', boxSizing: 'border-box',
         }}>
+            {/* Background Video */}
+            <div className="hero-video-container">
+                <video src={industriesVideo} autoPlay loop muted playsInline></video>
+                <div className="hero-video-overlay"></div>
+            </div>
+
             {/* dot grid overlay */}
             <div style={{
                 position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
@@ -73,18 +80,18 @@ export const IndustriesHero = () => {
                     marginTop: 0,
                     marginBottom: '1.5rem',
                     lineHeight: 1.2,
-                    color: '#111827',
+                    color: '#ffffff',
                     fontFamily: "'Inter', system-ui, sans-serif",
                 }}>
                     Your Industry.<br />
-                    <span style={{ color: '#2563EB' }}>Our Expertise.</span>
+                    <span style={{ color: '#93c5fd' }}>Our Expertise.</span>
                 </h1>
 
 
                 <p style={{
                     margin: '0 auto 2rem auto', maxWidth: '800px',
                     fontSize: '1.15rem',
-                    color: '#4b5563', lineHeight: 1.6,
+                    color: '#e5e7eb', lineHeight: 1.6,
                     fontFamily: "'Inter', system-ui, sans-serif",
                 }}>
                     Halftone Systems provides the domain depth and technological excellence you need to lead your industry in the digital age. We architect competitive advantages that last.

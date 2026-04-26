@@ -3,6 +3,7 @@ import { motion, useScroll } from 'framer-motion';
 import { Activity, Leaf, Factory, Server, Rocket, ShoppingCart } from 'lucide-react';
 import './WhoWeAre.css';
 import founderImage from '../../assets/halftone_profile_image.jpeg';
+import whoWeAreVideo from '../../assets/videos/Who We Are.mp4';
 
 export const WhoWeAre = () => {
     const timelineRef = useRef(null);
@@ -51,35 +52,48 @@ export const WhoWeAre = () => {
 
 
     return (
-        <section id="who-we-are" className="who-we-are-section hero-format-standard">
+        <div className="who-we-are-page-wrapper">
+            <section id="who-we-are" className="who-we-are-section hero-format-standard" style={{ position: 'relative', overflow: 'hidden', paddingBottom: '80px' }}>
+                {/* Background Video */}
+                <div className="hero-video-container">
+                    <video src={whoWeAreVideo} autoPlay loop muted playsInline></video>
+                    <div className="hero-video-overlay"></div>
+                </div>
 
-            {/* Background (previously Three.js) */}
-            <div className="who-we-are-bg">
-            </div>
-
-            <motion.div
-                className="who-we-are-container"
-            >
-
-                {/* Core Narrative */}
-                <motion.div className="wa-core-narrative">
-                    <p className="eyebrow-format-standard" style={{
-                        color: 'var(--c-primary)',
-                        fontSize: '0.85rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                        fontFamily: "'Inter', system-ui, sans-serif",
-                    }}>
-                        Who We Are
-                    </p>
-                    <h1 className="universal-hero-title wa-headline" style={{ color: '#111827' }}>We Don't Just Build Technology.<br /><span className="wa-accent">We Build Futures.</span></h1>
-                    <p className="wa-description">
-                        Halftone Systems is a global technology powerhouse — engineering transformative digital solutions that turn ambitious visions into measurable competitive advantages.
-                    </p>
+                <motion.div
+                    className="who-we-are-container"
+                    style={{ position: 'relative', zIndex: 2, width: '100%' }}
+                >
+                    {/* Core Narrative */}
+                    <motion.div className="wa-core-narrative" style={{ marginBottom: 0 }}>
+                        <p className="eyebrow-format-standard" style={{
+                            color: 'var(--c-primary)',
+                            fontSize: '0.85rem',
+                            fontWeight: 700,
+                            letterSpacing: '0.12em',
+                            textTransform: 'uppercase',
+                            fontFamily: "'Inter', system-ui, sans-serif",
+                        }}>
+                            Who We Are
+                        </p>
+                        <h1 className="universal-hero-title wa-headline" style={{ color: '#ffffff' }}>We Don't Just Build Technology.<br /><span className="wa-accent">We Build Futures.</span></h1>
+                        <p className="wa-description text-over-video-muted">
+                            Halftone Systems is a global technology powerhouse — engineering transformative digital solutions that turn ambitious visions into measurable competitive advantages.
+                        </p>
+                    </motion.div>
                 </motion.div>
+            </section>
 
-                {/* Metric Cards */}
+            {/* Partitioning Line */}
+            <div style={{ height: '1px', background: 'rgba(37, 99, 235, 0.3)', width: '100%' }}></div>
+
+            {/* Body Section */}
+            <section className="who-we-are-section" style={{ paddingTop: '80px', overflow: 'visible' }}>
+                <motion.div
+                    className="who-we-are-container"
+                    style={{ position: 'relative', zIndex: 2, width: '100%' }}
+                >
+                    {/* Metric Cards */}
                 <motion.div className="wa-metrics-grid">
                     {metrics.map((metric, idx) => (
                         <div
@@ -191,9 +205,8 @@ export const WhoWeAre = () => {
                     </div>
                 </motion.div>
 
-
-
             </motion.div>
         </section>
+        </div>
     );
 };

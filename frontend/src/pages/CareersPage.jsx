@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { LayoutGrid, List, MapPin, Briefcase, DollarSign, Clock, ChevronRight, X, Heart, Share2, Bookmark, Shield, Zap, Users, Globe, Smile, Rocket, Sparkles, MessageSquare, Coffee, Target, Award, CheckCircle, Star, Cpu, Lock, Database, Handshake, Activity, BarChart, TrendingUp, Cloud, ArrowRight } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import careersVideo from '../assets/videos/HTS_Careers.mp4';
 
 /* ══════════════════════════════════════
    INTERSECTION REVEAL HOOK
@@ -550,7 +551,6 @@ export const CareersPage = () => {
     return (
         <div style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif", background: T.bg }}>
 
-            {/* HERO — standard standardized header */}
             <section
                 className="hero-format-standard careers-hero-section"
                 style={{
@@ -559,6 +559,12 @@ export const CareersPage = () => {
                     background: '#ffffff', overflow: 'hidden', padding: 'var(--hero-padding-top) 24px 80px',
                 }}
             >
+                {/* Background Video */}
+                <div className="hero-video-container">
+                    <video src={careersVideo} autoPlay loop muted playsInline></video>
+                    <div className="hero-video-overlay"></div>
+                </div>
+
                 <div style={{
                     position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
                     backgroundImage: 'radial-gradient(rgba(37,99,235,0.13) 1px, transparent 1px)',
@@ -583,11 +589,11 @@ export const CareersPage = () => {
                         WE'RE HIRING
                     </h4>
                     <h1 className="universal-hero-title" style={{
-                        marginTop: 0, marginBottom: '1.5rem', color: '#111827',
+                        marginTop: 0, marginBottom: '1.5rem', color: '#ffffff',
                     }}>
                         Build Your Future<br /><span style={{ color: T.primary }}>With Us.</span>
                     </h1>
-                    <p style={{ fontSize: '1rem', color: '#4b5563', lineHeight: 1.6 }}>
+                    <p className="text-over-video-muted" style={{ fontSize: '1rem', lineHeight: 1.6 }}>
                         We are looking for talented professionals to solve meaningful problems and build world-class products.
                     </p>
 

@@ -27,10 +27,7 @@
     padding-bottom: 4rem;
     background-attachment: fixed;
     /* Default background for mobile/tablet */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), var(--hero-bg);
-    background-size: cover;
-    background-position: center;
-    background-color: #ffffff;
+    background-color: transparent;
 }
 
 /* Diagonal Background Shape */
@@ -79,9 +76,7 @@
         height: 500px;
         /* Further decreased height */
         border-radius: 20px;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), var(--hero-bg);
-        background-size: cover;
-        background-position: center;
+        background-color: transparent;
         box-shadow: 0 40px 120px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.1);
         overflow: hidden;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Mail, Linkedin, Phone } from 'lucide-react';
-import heroBg from '../assets/hts-backgroundimage.jpg';
+import homeVideo from '../assets/videos/HTS_Home.mp4';
 import './Hero.css';
 import { Link } from 'react-router-dom';
 
@@ -47,8 +47,14 @@ export const Hero = () => {
     }, []);
 
     return (
-        <section className="hero" style={{ '--hero-bg': `url(${heroBg})` }}>
-            <div className="hero-main-box">
+        <section className="hero">
+            <div className="hero-main-box" style={{ position: 'relative', zIndex: 3, overflow: 'hidden' }}>
+                {/* Background Video */}
+                <div className="hero-video-container">
+                    <video src={homeVideo} autoPlay loop muted playsInline></video>
+                    <div className="hero-video-overlay"></div>
+                </div>
+                
                 <div className="container hero-container">
                     <div className="hero-grid">
                         <div className="hero-content">

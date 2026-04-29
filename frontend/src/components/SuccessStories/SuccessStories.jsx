@@ -15,6 +15,7 @@ import {
     Globe2
 } from 'lucide-react';
 import './SuccessStories.css';
+import successStoriesVideo from '../../assets/videos/HTS_Success Stories.mp4';
 
 export const SuccessStories = () => {
     const [activeFilter, setActiveFilter] = useState('All');
@@ -152,18 +153,29 @@ export const SuccessStories = () => {
         : stories.filter(story => story.category === activeFilter);
 
     return (
-        <section id="success-stories" className="success-stories-section hero-format-standard">
-            <div className="ss-container">
-                <div className="ss-header-block">
-                    <span className="ss-overline">SUCCESS STORIES</span>
-                    <h1 className="universal-hero-title">
-                        Trusted by Industry Leaders<br />
-                        <span className="ss-highlight">Worldwide</span>
-                    </h1>
-                    <p className="ss-vision-desc">Our success stories span industries, continents, and ambitions. Select an industry below to explore our impact.</p>
+        <div className="success-stories-wrapper">
+            <section id="success-stories-hero" className="success-stories-section hero-format-standard" style={{ position: 'relative', overflow: 'hidden', paddingBottom: '100px' }}>
+                {/* Background Video */}
+                <div className="hero-video-container">
+                    <video src={successStoriesVideo} autoPlay loop muted playsInline></video>
+                    <div className="hero-video-overlay"></div>
                 </div>
 
-                <div className="ss-filter-nav">
+                <div className="ss-container" style={{ position: 'relative', zIndex: 2 }}>
+                    <div className="ss-header-block" style={{ marginBottom: 0 }}>
+                        <span className="ss-overline">SUCCESS STORIES</span>
+                        <h1 className="universal-hero-title" style={{ color: '#ffffff' }}>
+                            Trusted by Industry Leaders<br />
+                            <span className="ss-highlight">Worldwide</span>
+                        </h1>
+                        <p className="ss-vision-desc text-over-video-muted">Our success stories span industries, continents, and ambitions. Select an industry below to explore our impact.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="success-stories-body" className="success-stories-section" style={{ paddingTop: '80px', paddingBottom: '100px' }}>
+                <div className="ss-container">
+                    <div className="ss-filter-nav">
                     {categories.map((cat) => (
                         <button
                             key={cat}
@@ -210,5 +222,6 @@ export const SuccessStories = () => {
                 </motion.div>
             </div>
         </section>
+        </div>
     );
 };

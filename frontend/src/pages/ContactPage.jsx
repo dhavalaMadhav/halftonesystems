@@ -3,7 +3,7 @@ import { Contact } from '../components/Contact';
 
 export const ContactPage = () => {
     return (
-        <div className="page-wrapper" style={{ paddingTop: '80px' }}>
+        <div className="page-wrapper">
             <Contact />
         </div>
     );

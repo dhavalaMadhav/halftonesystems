@@ -33,14 +33,14 @@
 
 /* Hero Section - Specificity boost to override global styles */
 section.contact-hero.hero-format-standard {
-    padding-top: 50px !important; 
+    padding-top: 100px !important; 
     padding-bottom: 60px;
     background: radial-gradient(circle at top right, #f8faff 0%, #ffffff 100%);
 }
 
 @media (min-width: 1024px) {
     section.contact-hero.hero-format-standard {
-        padding-top: 100px !important;
+        padding-top: 150px !important;
     }
 }
 
@@ -82,12 +82,16 @@ section.contact-hero.hero-format-standard {
     font-size: 1.5rem;
 }
 
-/* Contact Grid */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
+}
+
+.get-in-touch-section {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
 }
 
 .contact-info-card {

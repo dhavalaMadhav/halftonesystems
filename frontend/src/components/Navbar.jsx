@@ -4,6 +4,7 @@ import { ChevronDown, Phone, Check } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import hsLogo from '../assets/HS_LOGO.png';
 import hsName from '../assets/name.png';
+import htsLogo1 from '../assets/HTS_Logo1.jpg';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -133,6 +134,7 @@ export const Navbar = () => {
 
                     {/* Utility: VAYUCARE_FORGE + Mobile toggle */}
                     <div className="navbar-utility" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <img src={htsLogo1} alt="HTS Logo 1" style={{ height: '36px', objectFit: 'contain', borderRadius: '4px' }} className="hide-mobile" />
                         <Link to="/vayucare-forge" className="vayucare-forge-btn hide-mobile">
                             VAYUCARE FORGE
                         </Link>

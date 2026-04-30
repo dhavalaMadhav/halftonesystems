@@ -497,6 +497,10 @@
    ========================================================================= */
 
 @media (max-width: 900px) {
+    .home-page-new {
+        margin-top: 0;
+    }
+
     .home-hero {
         padding: 4rem 1.5rem 3rem;
     }

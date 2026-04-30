@@ -1000,7 +1000,7 @@ export const CareersPage = () => {
                             We are always looking for exceptional talent. If you don't see a role that fits but believe you can add value, we want to hear from you.
                         </p>
                         <a 
-                            href="mailto:hr@halftonesystems.com?subject=Job Application" 
+                            href="mailto:info@halftonesystems.com?subject=Job Application" 
                             style={{ 
                                 padding: '14px 40px', borderRadius: '100px', background: T.primary, color: '#fff', 
                                 fontWeight: 800, border: 'none', cursor: 'pointer', textDecoration: 'none',

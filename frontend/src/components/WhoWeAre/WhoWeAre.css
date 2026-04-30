@@ -469,12 +469,35 @@
     }
 
     .wa-metrics-grid {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
     }
 
-    .wa-metric-border {
-        border-right: none;
+    .wa-metric-card {
+        border-right: 1px solid #e5e7eb;
         border-bottom: 1px solid #e5e7eb;
+        padding: 1.5rem 0.5rem;
+        min-width: 0;
+    }
+
+    .wa-metric-card:nth-child(even) {
+        border-right: none;
+    }
+
+    .wa-metric-card:nth-child(n+3) {
+        border-bottom: none;
+    }
+
+    .wa-metric-value {
+        font-size: clamp(1.2rem, 6vw, 1.8rem);
+        margin-bottom: 0.25rem;
+    }
+
+    .wa-metric-label {
+        font-size: 0.65rem;
+        letter-spacing: 0;
+        line-height: 1.3;
     }
 
     .wa-timeline-line-bg, .wa-timeline-line-fill {

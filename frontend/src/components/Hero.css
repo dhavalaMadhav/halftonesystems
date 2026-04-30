@@ -395,8 +395,7 @@
 @media (max-width: 768px) {
     .hero {
         margin-top: 0 !important;
-        padding-top: 100px !important;
-        /* Increased space for mobile header */
+        padding-top: 0 !important;
         padding-bottom: 80px !important;
         height: auto !important;
         min-height: 100dvh !important;
@@ -406,8 +405,12 @@
         background-attachment: scroll !important;
     }
 
+    .hero-main-box {
+        min-height: 100dvh;
+    }
+
     .hero-title {
-        padding-top: 20px;
+        padding-top: 100px;
         /* Minimal padding for the header overlap */
         font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
         min-height: auto;

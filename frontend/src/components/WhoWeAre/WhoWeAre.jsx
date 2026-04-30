@@ -4,6 +4,7 @@ import { Activity, Leaf, Factory, Server, Rocket, ShoppingCart } from 'lucide-re
 import './WhoWeAre.css';
 import founderImage from '../../assets/halftone_profile_image.jpeg';
 import whoWeAreVideo from '../../assets/videos/Who We Are.mp4';
+import behindOurNameImage from '../../assets/HALFTONE_Behind Our Name.png';
 
 export const WhoWeAre = () => {
     const timelineRef = useRef(null);
@@ -108,6 +109,17 @@ export const WhoWeAre = () => {
 
                 {/* Divider */}
                 <motion.div className="wa-divider"></motion.div>
+
+                {/* Behind Our Name Image */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 4rem', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}
+                >
+                    <img src={behindOurNameImage} alt="Behind Our Name" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                </motion.div>
 
                 <motion.div id="our-history" className="wa-founder-section">
                     <h4 className="wa-section-title">OUR HISTORY</h4>

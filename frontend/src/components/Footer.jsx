@@ -11,7 +11,7 @@ export const Footer = () => {
                     <div className="footer-col">
                         <h3 className="footer-logo">HALFTONE SYSTEMS</h3>
                         <p className="footer-desc">
-                            Empowering business transformation through technology and talent.
+                            Businesses with Information Technology & Technology Products
                         </p>
                         <div className="social-icons">
                             <a href="https://www.linkedin.com/company/halftone-systems" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -59,7 +59,7 @@ export const Footer = () => {
 
                             <li style={{ display: 'flex', gap: '8px' }}>
                                 <MapPin size={16} style={{ color: 'var(--c-primary)', flexShrink: 0 }} />
-                                <span style={{ fontSize: '0.9rem' }}>Banjara Hills, Hyderabad, India</span>
+                                <span style={{ fontSize: '0.9rem' }}>Hyderabad, India</span>
                             </li>
                         </ul>
                     </div>

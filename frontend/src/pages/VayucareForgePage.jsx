@@ -12,6 +12,7 @@ import {
 import './VayucareForgePage.css';
 import heroBg from '../assets/vayucare.app.jpg';
 import techBg from '../assets/hero_bg_tech.png';
+import heroVideo from '../assets/videos/Vayucare1.mp4';
 
 const VayucareForgePage = () => {
     const fadeIn = {
@@ -31,8 +32,12 @@ const VayucareForgePage = () => {
     return (
         <div className="vayucare-page">
             {/* ── HERO SECTION ───────────────────────────────────────── */}
-            <section id="hero" className="v-hero" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="container">
+            <section id="hero" className="v-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div className="hero-video-container">
+                    <video src={heroVideo} autoPlay loop muted playsInline></video>
+                    <div className="hero-video-overlay"></div>
+                </div>
+                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center' }}>
                         <motion.div className="hero-content" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
                             <div className="v-badge" style={{ backgroundColor: '#2563EB', color: 'white', alignSelf: 'flex-start', marginLeft: '0' }}>NEW PRODUCT</div>

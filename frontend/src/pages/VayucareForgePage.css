@@ -80,7 +80,7 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    padding: 160px 0 100px;
+    padding: 120px 0 60px;
 }
 
 .v-badge {
@@ -92,23 +92,24 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.75rem;
 }
 
-.hero-title {
+.v-hero-title {
     font-size: clamp(2.8rem, 8vw, 5.5rem);
     line-height: 1.1;
     font-weight: 900;
-    margin-bottom: 0.35rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
 
-.hero-subtitle {
+.v-hero-subtitle {
     line-height: 1.4;
     margin-bottom: 1.5rem;
 }
 
-.hero-actions {
+.v-hero-actions {
     display: flex;
     gap: 1.5rem;
 }
@@ -153,7 +154,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    margin-top: 5rem;
+    margin-top: 3rem;
     padding: 2.5rem;
     background: transparent;
     backdrop-filter: blur(20px);
@@ -679,20 +680,20 @@
 }
 
 @media (max-width: 1024px) {
-    .v-hero .hero-grid {
+    .v-hero .v-hero-grid {
         grid-template-columns: 1fr;
         text-align: left;
         gap: 2rem;
     }
-    .hero-content {
+    .v-hero-content {
         order: 1 !important;
     }
-    .hero-visual {
+    .v-hero-visual {
         order: 2 !important;
         margin-top: 1.5rem;
         margin-bottom: 0;
     }
-    .hero-actions {
+    .v-hero-actions {
         justify-content: flex-start;
     }
     .overview-grid, .use-cases-grid {
@@ -717,38 +718,38 @@
         padding: 90px 0 50px;
         min-height: auto;
     }
-    .v-hero .hero-grid {
+    .v-hero .v-hero-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 2rem;
     }
-    .hero-content {
+    .v-hero-content {
         order: 1 !important;
         width: 100%;
     }
-    .hero-visual {
+    .v-hero-visual {
         order: 2 !important;
         width: 100%;
-        margin-top: 0;
+        margin-top: 2rem;
     }
     .v-badge {
-        margin-bottom: -1rem;
+        margin-bottom: 0.5rem;
     }
-    .hero-title {
+    .v-hero-title {
         font-size: clamp(2.4rem, 10vw, 3.2rem);
         line-height: 1.1;
-        margin-bottom: -0.75rem;
+        margin-bottom: 0.75rem;
     }
-    .hero-subtitle {
+    .v-hero-subtitle {
         font-size: 1rem;
         margin-bottom: 1.25rem;
     }
-    .hero-actions {
+    .v-hero-actions {
         justify-content: flex-start;
         gap: 0.75rem;
         flex-wrap: wrap;
     }
-    .hero-actions button {
+    .v-hero-actions button {
         padding: 11px 22px;
         font-size: 0.9rem;
     }

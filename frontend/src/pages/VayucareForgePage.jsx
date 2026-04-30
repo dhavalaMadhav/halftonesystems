@@ -38,25 +38,25 @@ const VayucareForgePage = () => {
                     <div className="hero-video-overlay"></div>
                 </div>
                 <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                    <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'center' }}>
-                        <motion.div className="hero-content" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+                    <div className="v-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '2rem', alignItems: 'center' }}>
+                        <motion.div className="v-hero-content" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
                             <div className="v-badge" style={{ backgroundColor: '#2563EB', color: 'white', alignSelf: 'flex-start', marginLeft: '0' }}>NEW PRODUCT</div>
-                            <h1 className="hero-title" style={{ color: 'white' }}>
+                            <h1 className="v-hero-title" style={{ color: 'white' }}>
                                 VAYUCARE<br />
                                 <span style={{ color: 'var(--v-secondary)' }}>One Tap. One Life Saved.</span>
                             </h1>
-                            <p className="hero-subtitle" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.4rem', fontWeight: '600' }}>
+                            <p className="v-hero-subtitle" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.4rem', fontWeight: '600' }}>
                                 PRODUCT DEVELOPMENT<br />
                                 <span style={{ fontSize: '1.1rem', fontWeight: '400', opacity: 0.8 }}>Building India's Most Advanced Integrated Healthcare Platform</span>
                             </p>
-                            <div className="hero-actions">
+                            <div className="v-hero-actions">
                                 <Link to="/contact" className="vayucare-forge-btn-large hide-mobile" style={{ textDecoration: 'none' }}>Explore Platform</Link>
                                 <Link to="/contact" className="book-call-btn-large" style={{ textDecoration: 'none' }}>Request Demo</Link>
                             </div>
                         </motion.div>
 
                         <motion.div 
-                            className="hero-visual"
+                            className="v-hero-visual"
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import { Activity, Leaf, Factory, Server, Rocket, ShoppingCart } from 'lucide-react';
+import { Activity, Leaf, Factory, Server, Rocket, ShoppingCart, Linkedin } from 'lucide-react';
 import './WhoWeAre.css';
 import founderImage from '../../assets/halftone_profile_image.jpeg';
 import whoWeAreVideo from '../../assets/videos/Who We Are.mp4';
@@ -136,7 +136,12 @@ export const WhoWeAre = () => {
                             <div className="wa-founder-image-container">
                                 <img src={founderImage} alt="Nagaraj Adireddy" className="wa-founder-image" />
                             </div>
-                            <h5 className="wa-founder-name">NAGARAJ ADIREDDY</h5>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '4px' }}>
+                                <h5 className="wa-founder-name" style={{ margin: 0 }}>NAGARAJ ADIREDDY</h5>
+                                <a href="https://www.linkedin.com/in/nagrajadireddy" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', color: '#0A66C2', transition: 'opacity 0.2s', marginTop: '-2px' }}>
+                                    <Linkedin size={20} />
+                                </a>
+                            </div>
                             <p className="wa-founder-title">FOUNDER & MANAGING DIRECTOR · HALFTONE SYSTEMS</p>
                             <blockquote className="wa-quote">
                                 "Technology is not just about digital adoption; it's about business transformation. Every solution we architect must drive measurable value, enhance competitive positioning, and create sustainable growth for our clients."

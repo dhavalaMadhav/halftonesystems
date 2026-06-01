@@ -3,6 +3,7 @@ import { motion, useScroll } from 'framer-motion';
 import { Activity, Leaf, Factory, Server, Rocket, ShoppingCart, Linkedin } from 'lucide-react';
 import './WhoWeAre.css';
 import founderImage from '../../assets/halftone_profile_image.jpeg';
+import ceoImage from '../../assets/dr_sri.jpg';
 import whoWeAreVideo from '../../assets/videos/Who We Are.mp4';
 import behindOurNameImage from '../../assets/HALFTONE_Behind Our Name.png';
 
@@ -95,135 +96,155 @@ export const WhoWeAre = () => {
                     style={{ position: 'relative', zIndex: 2, width: '100%' }}
                 >
                     {/* Metric Cards */}
-                <motion.div className="wa-metrics-grid">
-                    {metrics.map((metric, idx) => (
-                        <div
-                            key={idx}
-                            className={`wa-metric-card ${idx !== metrics.length - 1 ? 'wa-metric-border' : ''}`}
-                        >
-                            <h3 className="wa-metric-value">{metric.value}</h3>
-                            <p className="wa-metric-label">{metric.label}</p>
-                        </div>
-                    ))}
-                </motion.div>
-
-                {/* Divider */}
-                <motion.div className="wa-divider"></motion.div>
-
-                {/* Behind Our Name Image */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 4rem', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}
-                >
-                    <img src={behindOurNameImage} alt="Behind Our Name" style={{ width: '100%', height: 'auto', display: 'block' }} />
-                </motion.div>
-
-                <motion.div id="our-history" className="wa-founder-section">
-                    <h4 className="wa-section-title">OUR HISTORY</h4>
-                    <h3 className="wa-section-subtitle">Our vision is to transform the world</h3>
-
-                    <div className="wa-founder-content">
-                        <div className="wa-founder-text">
-                            <p>Halftone Systems was founded by Nagaraj Adireddy — a technology visionary with a Master's in Computer Science from SRH University Heidelberg, Germany, and advanced business systems expertise from the University of Stralsund, Germany.</p>
-                            <p>Over a remarkable 19-year international career spanning Germany, USA, UK, and India, Nagaraj became a trusted strategic advisor to Fortune 500 enterprises and high-growth businesses across the globe — before channelling that expertise into Halftone Systems.</p>
-                            <p>Today, the company stands as a crossroads of deep technical excellence and strategic business intelligence, delivering breakthrough solutions across 14+ industry verticals worldwide.</p>
-                        </div>
-
-                        <div className="wa-founder-quote-box wa-glass-card">
-                            <div className="wa-founder-image-container">
-                                <img src={founderImage} alt="Nagaraj Adireddy" className="wa-founder-image" />
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '4px' }}>
-                                <h5 className="wa-founder-name" style={{ margin: 0 }}>NAGARAJ ADIREDDY</h5>
-                                <a href="https://www.linkedin.com/in/nagrajadireddy" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', color: '#0A66C2', transition: 'opacity 0.2s', marginTop: '-2px' }}>
-                                    <Linkedin size={20} />
-                                </a>
-                            </div>
-                            <p className="wa-founder-title">FOUNDER & MANAGING DIRECTOR · HALFTONE SYSTEMS</p>
-                            <blockquote className="wa-quote">
-                                "Technology is not just about digital adoption; it's about business transformation. Every solution we architect must drive measurable value, enhance competitive positioning, and create sustainable growth for our clients."
-                            </blockquote>
-                        </div>
-                    </div>
-
-                    <div className="wa-industries-list">
-                        <span className="wa-list-label">Cross-Industry Expertise:</span>
-                        <p className="wa-list-items">Financial Services · Healthcare & Pharma · Retail & E-commerce · Manufacturing · Energy & Utilities · Oil & Gas · Logistics · GovTech · Agritech · Education · Food Import/Export · Drones · Facility Management</p>
-                    </div>
-                </motion.div>
-
-                <motion.div id="our-journey" className="wa-journey-section">
-                    <h4 className="wa-section-title">OUR JOURNEY</h4>
-                    <h3 className="wa-section-subtitle">A Timeline of Excellence</h3>
-
-                    <div className="wa-timeline" ref={timelineRef}>
-                        <div className="wa-timeline-line-bg"></div>
-                        <motion.div
-                            className="wa-timeline-line-fill"
-                            style={{ scaleY: scrollYProgress }}
-                        />
-                        <div className="wa-timeline-item">
-                            <div className="wa-timeline-dot"></div>
-                            <div className="wa-timeline-content">
-                                <h5>GENESIS</h5>
-                                <p>Nagaraj begins his international technology journey in Germany, building expertise in enterprise systems, cloud architecture, and strategic consulting across European Fortune 500 clients.</p>
-                            </div>
-                        </div>
-                        <div className="wa-timeline-item">
-                            <div className="wa-timeline-dot"></div>
-                            <div className="wa-timeline-content">
-                                <h5>EXPANSION</h5>
-                                <p>Extends practice to USA and UK, advising global enterprises on digital transformation, SAP modernisation, and AI-driven analytics strategies.</p>
-                            </div>
-                        </div>
-                        <div className="wa-timeline-item">
-                            <div className="wa-timeline-dot"></div>
-                            <div className="wa-timeline-content">
-                                <h5>HALFTONE SYSTEMS FOUNDED</h5>
-                                <p>With 19 years of international mastery, Nagaraj launches Halftone Systems — architecting a firm built to deliver Fortune 500-grade technology to organisations of every scale.</p>
-                            </div>
-                        </div>
-                        <div className="wa-timeline-item">
-                            <div className="wa-timeline-dot"></div>
-                            <div className="wa-timeline-content">
-                                <h5>TODAY</h5>
-                                <p>Halftone Systems powers organisations across Healthcare, Energy, Pharmaceuticals, Education, Logistics, Retail and beyond — on four continents.</p>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                <motion.div id="six-pillars" className="wa-vision-section">
-                    <h4 className="wa-section-title">OUR VISION</h4>
-                    <h3 className="wa-section-subtitle">Six Pillars of Innovation</h3>
-                    <p className="wa-vision-desc">Halftone Systems delivers breakthrough solutions across six core practice areas — each engineered to give clients an enduring competitive advantage.</p>
-
-                    <div className="wa-pillars-grid">
-                        {pillars.map((pillar) => (
-                            <motion.div
-                                key={pillar.id}
-                                className="wa-pillar-card"
+                    <motion.div className="wa-metrics-grid">
+                        {metrics.map((metric, idx) => (
+                            <div
+                                key={idx}
+                                className={`wa-metric-card ${idx !== metrics.length - 1 ? 'wa-metric-border' : ''}`}
                             >
-                                <div className="wa-pillar-header">
-                                    <div className="wa-pillar-top">
-                                        <span className="wa-pillar-id">{pillar.id}</span>
-                                        <span className="wa-pillar-icon">{pillar.icon}</span>
-                                    </div>
-                                    <h5 className="wa-pillar-title">{pillar.title}</h5>
-                                </div>
-                                <div className="wa-pillar-content">
-                                    <p className="wa-pillar-desc">{pillar.desc}</p>
-                                </div>
-                            </motion.div>
+                                <h3 className="wa-metric-value">{metric.value}</h3>
+                                <p className="wa-metric-label">{metric.label}</p>
+                            </div>
                         ))}
-                    </div>
-                </motion.div>
+                    </motion.div>
 
-            </motion.div>
-        </section>
+                    {/* Divider */}
+                    <motion.div className="wa-divider"></motion.div>
+
+                    {/* Behind Our Name Image */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto 4rem', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}
+                    >
+                        <img src={behindOurNameImage} alt="Behind Our Name" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    </motion.div>
+
+                    <motion.div id="our-history" className="wa-founder-section">
+                        <h4 className="wa-section-title">OUR HISTORY</h4>
+                        <h3 className="wa-section-subtitle">Our vision is to transform the world</h3>
+
+                        <div className="wa-founder-content">
+                            <div className="wa-founder-text">
+                                <p>Halftone Systems was founded by Nagaraj Adireddy — a technology visionary with a Master's in Computer Science from SRH University Heidelberg, Germany, and advanced business systems expertise from the University of Stralsund, Germany.</p>
+                                <p>Over a remarkable 19-year international career spanning Germany, USA, UK, and India, Nagaraj became a trusted strategic advisor to Fortune 500 enterprises and high-growth businesses across the globe — before channelling that expertise into Halftone Systems.</p>
+                                <p>Today, the company stands as a crossroads of deep technical excellence and strategic business intelligence, delivering breakthrough solutions across 14+ industry verticals worldwide.</p>
+                            </div>
+
+                            <div className="wa-founder-quote-box wa-glass-card">
+                                <div className="wa-founder-image-container">
+                                    <img src={founderImage} alt="Nagaraj Adireddy" className="wa-founder-image" />
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '4px' }}>
+                                    <h5 className="wa-founder-name" style={{ margin: 0 }}>NAGARAJ ADIREDDY</h5>
+                                    <a href="https://www.linkedin.com/in/nagrajadireddy" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', color: '#0A66C2', transition: 'opacity 0.2s', marginTop: '-2px' }}>
+                                        <Linkedin size={20} />
+                                    </a>
+                                </div>
+                                <p className="wa-founder-title">FOUNDER & MANAGING DIRECTOR · HALFTONE SYSTEMS</p>
+                                <blockquote className="wa-quote">
+                                    "Technology is not just about digital adoption; it's about business transformation. Every solution we architect must drive measurable value, enhance competitive positioning, and create sustainable growth for our clients."
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div className="wa-divider" style={{ margin: '4rem 0' }}></div>
+
+                        <div className="wa-founder-content wa-ceo-content">
+                            <div className="wa-founder-quote-box wa-glass-card">
+                                <div className="wa-founder-image-container">
+                                    <img src={ceoImage} alt="Dr. SRI" className="wa-founder-image" />
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '4px' }}>
+                                    <h5 className="wa-founder-name" style={{ margin: 0 }}>Dr. SRI</h5>
+                                </div>
+                                <p className="wa-founder-title">GLOBAL CEO · HALFTONE SYSTEMS</p>
+                            </div>
+
+                            <div className="wa-founder-text">
+                                <p>Mr. SRI, is the visionary Global CEO of Halftone Systems (HTS), with 25+ years of leadership as Chairman, CEO, CFO, and Board Member, SRI has driven global ventures in investment, infrastructure, real estate, and manufacturing.</p>
+                                <p>He is an expert in capital raising through structured equity and debt financing across diverse sectors. SRI has served on global boards including PMI and ITIL UK Swiss Chapter, contributing to voluntary and developmental initiatives.</p>
+                                <p>He leads White Capital Group, First Boston Group Consortium, and manages multi-billion-dollar portfolios with Global Private Investment Group. A global speaker and mentor, SRI supports humanitarian missions and guides businesses, families, and institutions worldwide.</p>
+                            </div>
+                        </div>
+
+                        <div className="wa-industries-list">
+                            <span className="wa-list-label">Cross-Industry Expertise:</span>
+                            <p className="wa-list-items">Financial Services · Healthcare & Pharma · Retail & E-commerce · Manufacturing · Energy & Utilities · Oil & Gas · Logistics · GovTech · Agritech · Education · Food Import/Export · Drones · Facility Management</p>
+                        </div>
+                    </motion.div>
+
+                    <motion.div id="our-journey" className="wa-journey-section">
+                        <h4 className="wa-section-title">OUR JOURNEY</h4>
+                        <h3 className="wa-section-subtitle">A Timeline of Excellence</h3>
+
+                        <div className="wa-timeline" ref={timelineRef}>
+                            <div className="wa-timeline-line-bg"></div>
+                            <motion.div
+                                className="wa-timeline-line-fill"
+                                style={{ scaleY: scrollYProgress }}
+                            />
+                            <div className="wa-timeline-item">
+                                <div className="wa-timeline-dot"></div>
+                                <div className="wa-timeline-content">
+                                    <h5>GENESIS</h5>
+                                    <p>Nagaraj begins his international technology journey in Germany, building expertise in enterprise systems, cloud architecture, and strategic consulting across European Fortune 500 clients.</p>
+                                </div>
+                            </div>
+                            <div className="wa-timeline-item">
+                                <div className="wa-timeline-dot"></div>
+                                <div className="wa-timeline-content">
+                                    <h5>EXPANSION</h5>
+                                    <p>Extends practice to USA and UK, advising global enterprises on digital transformation, SAP modernisation, and AI-driven analytics strategies.</p>
+                                </div>
+                            </div>
+                            <div className="wa-timeline-item">
+                                <div className="wa-timeline-dot"></div>
+                                <div className="wa-timeline-content">
+                                    <h5>HALFTONE SYSTEMS FOUNDED</h5>
+                                    <p>With 19 years of international mastery, Nagaraj launches Halftone Systems — architecting a firm built to deliver Fortune 500-grade technology to organisations of every scale.</p>
+                                </div>
+                            </div>
+                            <div className="wa-timeline-item">
+                                <div className="wa-timeline-dot"></div>
+                                <div className="wa-timeline-content">
+                                    <h5>TODAY</h5>
+                                    <p>Halftone Systems powers organisations across Healthcare, Energy, Pharmaceuticals, Education, Logistics, Retail and beyond — on four continents.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div id="six-pillars" className="wa-vision-section">
+                        <h4 className="wa-section-title">OUR VISION</h4>
+                        <h3 className="wa-section-subtitle">Six Pillars of Innovation</h3>
+                        <p className="wa-vision-desc">Halftone Systems delivers breakthrough solutions across six core practice areas — each engineered to give clients an enduring competitive advantage.</p>
+
+                        <div className="wa-pillars-grid">
+                            {pillars.map((pillar) => (
+                                <motion.div
+                                    key={pillar.id}
+                                    className="wa-pillar-card"
+                                >
+                                    <div className="wa-pillar-header">
+                                        <div className="wa-pillar-top">
+                                            <span className="wa-pillar-id">{pillar.id}</span>
+                                            <span className="wa-pillar-icon">{pillar.icon}</span>
+                                        </div>
+                                        <h5 className="wa-pillar-title">{pillar.title}</h5>
+                                    </div>
+                                    <div className="wa-pillar-content">
+                                        <p className="wa-pillar-desc">{pillar.desc}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                </motion.div>
+            </section>
         </div>
     );
 };

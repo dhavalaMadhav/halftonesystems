@@ -500,7 +500,8 @@
         line-height: 1.3;
     }
 
-    .wa-timeline-line-bg, .wa-timeline-line-fill {
+    .wa-timeline-line-bg,
+    .wa-timeline-line-fill {
         left: 10px;
     }
 
@@ -509,7 +510,8 @@
     }
 
     .wa-timeline-dot {
-        left: 4px; /* Centered on 10px line: 10 - (14/2) + 1 = 4px; wait, 4+7 = 11. 3+7 = 10. Let's use 3px. */
+        left: 4px;
+        /* Centered on 10px line: 10 - (14/2) + 1 = 4px; wait, 4+7 = 11. 3+7 = 10. Let's use 3px. */
         left: 3px;
     }
 
@@ -522,13 +524,17 @@
     .wa-section-subtitle {
         font-size: 1.5rem;
     }
+
     .wa-metric-value {
         font-size: 2.2rem;
     }
+
     .wa-founder-name {
         font-size: 1.25rem;
     }
-    .wa-pillar-header, .wa-pillar-content {
+
+    .wa-pillar-header,
+    .wa-pillar-content {
         padding: 1.25rem;
     }
 }
